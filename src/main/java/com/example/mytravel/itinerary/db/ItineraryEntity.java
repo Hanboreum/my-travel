@@ -24,7 +24,9 @@ public class ItineraryEntity {
     @GeneratedValue(strategy =  GenerationType.IDENTITY)
     private Long itineraryId;
 
-    private Long tripId;
+    @ManyToOne
+    @JoinColumn(name = "trip_id")
+    private TripEntity trip;
 
     private String departurePlace;
 

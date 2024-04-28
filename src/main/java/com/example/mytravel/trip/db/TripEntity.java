@@ -1,5 +1,6 @@
 package com.example.mytravel.trip.db;
 
+import com.example.mytravel.itinerary.db.ItineraryEntity;
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import jakarta.persistence.*;
@@ -30,5 +31,8 @@ public class TripEntity {
 
     @Column(columnDefinition = "TEXT")
     private String comment;
+
+    @OneToMany(mappedBy = "trip")
+    private List<ItineraryEntity> itineraryList = List.of();
 
 }
